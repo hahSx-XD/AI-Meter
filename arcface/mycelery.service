@@ -1,0 +1,15 @@
+[Unit]
+Description=mycelery
+
+[Service]
+Type=simple
+WorkingDirectory=/home/ruoke/project/arcsoft
+ExecStart=/home/ruoke/project/arcsoft/env/bin/celery -A celeryagedb worker -l info -n worker1
+
+Restart=always
+RestartSec=5
+StartLimitInterval=0
+RestartPreventExitStatus=SIGKILL
+
+[Install]
+WantedBy=multi-user.target
